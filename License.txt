@@ -1,7 +1,0 @@
-Copyright (c) 2018, by Sergey Lobanov and Evgenia Lobanova
-
-License agreement of using this Software:
-
-1. The whole Software or any part of the Software cannot be used as a part of other software.
-
-2. If the Software is used to produce results of a journal article, the licensee agrees to cite the paper "E. G. Lobanova and S. V. Lobanov, arXiv:1803.01823 (2018)" in this article.
