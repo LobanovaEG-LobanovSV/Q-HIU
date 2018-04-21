@@ -1,31 +1,39 @@
 clc
 clear
 close all
+
+% Set path to the Functions folder
 SetPath
 
-%% Parameters
+%% Create dialog boxes initializing parameters and choosing data
 
+% Create a dialog box initializing parameters of this script
 [nu1,dx,dy,dnu,R_thr_SVD,sigma,R_thr_BGF,Save,nu2,N,Niter,Nrepl,KS] = ...
     RamanParameters;
 
-%% Load data
-
+% Create a dialog box choosing data with known spectra
 KS = LoadKnownSpectra(KS);
 
+% Create a dialog box choosing data with Raman spectra
 [Dir, Names, Ext] = LoadDirRaman;
 
 figure('OuterPosition',[1, 10, 1600, 900])
 
+% Create folder where results will be saved
 DirSave = fullfile(Dir,['Raman_Sigma=' int2str(sigma)]);
 if ~isdir(DirSave)
     mkdir(DirSave)
 end
 
-%% Main
+%% Loading the data
 
+% Load the data with known spectra
 KS = BGFKnownSpectra(KS,sigma,DirSave,Save);
 
+% Load the data with Raman spectra
 [I0, Nu, Nx, Ny] = LoadDataRaman(Dir,Names,Ext,nu1,DirSave,Save);
+
+%% Remove noise and subtract quasi-slowly varied background
 
 Iter = 0;
 while Iter == 0 || Nr > 0
@@ -41,13 +49,17 @@ while Iter == 0 || Nr > 0
         mkdir(DirIter)
     end
     
+    % Remove noise
     I = SVD_ADC(I0,Nx,Ny,R_thr_SVD,dx,dy,dnu,Save,Nu,DirIter,Names);
     
+    % Replace negative or close to zero intensities by small positive
+    % values
     Im = mean(I(:));
     disp([int2str(sum(I(:)<Im/100)) ' points were negative'])
     I(I<Im/100) = Im/100;
     
     disp('BGF...')
+    % Subtract quasi-slowly varied background
     I = BGF(I,Nu,sigma,R_thr_BGF,dnu,Save,Nx,Ny,DirIter,Names);
     
     Nr = sum(isnan(I0(:,1)) ~= isnan(I(:,1)));
@@ -56,9 +68,15 @@ while Iter == 0 || Nr > 0
 end
 clear I0 Im DirIter
 
+%% Remove spectral points outside the interval nu
+
+% Remove spectral points outside the interval nu2
 [Nu, I] = RamanRemoveSpectraPoints(Nu,I,nu2);
 
+% Interpolate known spectra
 KS = KSInterpolation(Nu,KS);
+
+%% Q-US/PS-NMF
 
 for i = 1:length(N)
     disp(['Q_USPS_NMF: step ' int2str(i) ' from ' int2str(length(N))])
