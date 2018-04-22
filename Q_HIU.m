@@ -35,35 +35,38 @@ KS = BGFKnownSpectra(KS,sigma,DirSave,Save);
 
 %% Remove noise and subtract quasi-slowly varied background
 
-Iter = 0;
-while Iter == 0 || Nr > 0
-    Iter = Iter + 1;
-    disp(['Iteration ' int2str(Iter)])
-    if Iter ~= 1
-        disp([int2str(Nr) ' points were removed']);
-    end
-    disp('SVD_ADC...')
+for i = 1:length(Nu)
+    disp(['Iteration ' int2str(i)])
     
-    DirIter = fullfile(DirSave,['Iteration_' int2str(Iter)]);
+    DirIter = fullfile(DirSave,['Iteration_' int2str(i)]);
     if Save && ~isdir(DirIter)
         mkdir(DirIter)
     end
     
     % Remove noise
+    disp('SVD_ADC...')
     I = SVD_ADC(I0,Nx,Ny,R_thr_SVD,dx,dy,dnu,Save,Nu,DirIter,Names);
     
     % Replace negative or close to zero intensities by small positive
     % values
-    Im = mean(I(:));
-    disp([int2str(sum(I(:)<Im/100)) ' points were negative'])
+    Im = mean(mean(I,'omitnan'),'omitnan');
+    disp([int2str(sum(sum(I<Im/100))) ' points were negative'])
     I(I<Im/100) = Im/100;
     
-    disp('BGF...')
     % Subtract quasi-slowly varied background
+    disp('BGF...')
     I = BGF(I,Nu,sigma,R_thr_BGF,dnu,Save,Nx,Ny,DirIter,Names);
     
+    % Find number of points with low spectral autocorrelation coefficient
     Nr = sum(isnan(I0(:,1)) ~= isnan(I(:,1)));
+    if Nr == 0
+        break
+    else
+        disp([int2str(Nr) ' points were removed']);
+    end
     
+    % Translate points with low spectral autocorrelation coefficient from
+    % the matrix I to the matrix I0
     I0(isnan(I(:,1)),:) = NaN;
 end
 clear I0 Im DirIter
