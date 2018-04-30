@@ -12,5 +12,4 @@ The best way to understand how the Q-HIU works is to consider the following exam
 
 ![Download data from Zenodo](https://github.com/LobanovaEG-LobanovSV/Q-HIU/blob/master/Images/ZenodoDownload.png)
 
-- Unzip the 'Raman.zip' folder and run 'txt2mat.m' file, which converts text data into MATLAB format:
-  - 
+- Unzip the Raman.zip folder and run txt2mat.m file, which converts text data into MATLAB format
