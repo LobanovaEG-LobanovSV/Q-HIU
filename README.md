@@ -12,4 +12,8 @@ The best way to understand how the Q-HIU works is to consider the following exam
 
 ![Download data from Zenodo](https://github.com/LobanovaEG-LobanovSV/Q-HIU/blob/master/Images/ZenodoDownload.png)
 
-- Unzip the Raman.zip folder and run txt2mat.m file, which converts text data into MATLAB format
+- Unzip the 'Raman.zip' folder and run 'txt2mat.m' file, which converts text data into MATLAB format:
+  - choose 'Raman' folder
+    ![choose Raman folder](https://github.com/LobanovaEG-LobanovSV/Q-HIU/blob/master/Images/Start_txt2mat.png)
+  - the script 'txt2mat.m' will create a subfolder 'Data' with six MATLAB data files containing intensity matrix `I` and Raman shift `Nu`:
+    ![Data folder](https://github.com/LobanovaEG-LobanovSV/Q-HIU/blob/master/Images/Data_folder.png)
