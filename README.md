@@ -10,6 +10,6 @@ The best way to understand how the Q-HIU works is to consider the following exam
 
 - Download the Raman micro spectroscopy data from [You et al., Research data supporting "Raman spectroscopy imaging reveals interplay between atherosclerosis and medial calcification in human aorta", Zenodo (2017)](https://zenodo.org/record/1045174).
 
-![ZenodoDownload](https://github.com/LobanovaEG-LobanovSV/Q-HIU/Images/ZenodoDownload.png)
+![ZenodoDownload](https://github.com/LobanovaEG-LobanovSV/Q-HIU/blob/master/Images/ZenodoDownload.png)
 
 - Unzip the Raman.zip folder 
