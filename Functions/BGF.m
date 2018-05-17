@@ -21,10 +21,10 @@
 %  sigma  - standard deviation, which is used for BGF.
 %  R_thr  - spectral autocorrelation coefficient threshold which is used
 %           in order to discard spatial points, which have correlation
-%           values lower than R_thr. Default value is 0.5.
+%           values lower than R_thr. Default value is 0.
 %   dnu   - "one" pixel shift along spectral axis. Default value is 1.
 %  Save   - logical parameter specifying to save results of BGF or not.
-%           Default value is true.
+%           Default value is false.
 %   Nx    - vector with number of pixels along x-axis for each submatrix
 %           of the intensity matrix I. Its length is Nr. Default value is
 %           sqrt(size(I,1)).
