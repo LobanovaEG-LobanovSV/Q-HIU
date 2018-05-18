@@ -4,9 +4,13 @@ Quantitative Hyperspectral Image Unmixing (Q-HIU) method retrieves biochemical c
 
 The main function is Q_HIU.m. It consists of three main steps: Singular Value Decomposition with Automatic Divisive Correlation (SVD_ADC.p), Bottom Gaussian Fitting (BGF.p), and Quantitative Unsupervised/Partially Supervised Non-negative Matrix Factorization (Q_USPS_NMF.p).
 
-The best way to understand how the Q-HIU works is to consider the following example.
+The best way to understand how the Q-HIU works is to consider the following examples.
 
-## Example of using Q-HIU
+## Example 1: using BGF to reproduce Fig. 1B
+
+- Run the script 'Example_Fig_1B.m'
+
+## Example 2: using Q-HIU to reproduce Figs. 2-3 and Figs. S3-S17 of the Supporting Information
 
 - Download the Raman micro spectroscopy data from [You et al., Research data supporting "Raman spectroscopy imaging reveals interplay between atherosclerosis and medial calcification in human aorta", Zenodo (2017)](https://zenodo.org/record/1045174):
 
