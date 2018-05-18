@@ -19,6 +19,8 @@ end
 
 muB = 1000; % \mu^{aB}
 sigmaB = 400; % \sigma^{aB}
+
+% Artificial Raman spectra with broad background:
 I = exp(-(Nu-muB).^2/(2*sigmaB^2)) + Is0;
 
 %% Calculate Bottom Gaussian Fitting (BGF) for background subtraction
