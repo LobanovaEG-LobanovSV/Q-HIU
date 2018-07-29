@@ -16,7 +16,7 @@
 %       Save,Nx,Ny,Names,DirSave)
 % Use empty variables to choose default parameters, for example,
 %   [C, S, Err, ErrC, ErrS] = Q_USPS_NMF(I,Nu,N,[],[],[], ...
-%       Save,Nx,Ny,Names,DirSave)
+%       Save,Nx,Ny,Names,DirSave,Sin,Tmax)
 %
 % Input:
 %    I    - Intensity matrix. It consists of Nr submatrices combined
@@ -41,6 +41,13 @@
 %           is Nr. Default is ''.
 % DirSave - folder, where pictures with spectra and concentration maps of
 %           factorized components are saved. Default is cd.
+%   Sin   - initial spectral matrix for the Q_USPS_NMF procedure. If Sin is
+%           given, the number of replications Nrepl is set to one. If Sin
+%           is not specified or is empty, the Q_USPS_NMF procedure performs
+%           Nrepl replications with random initial matrices. Default is [].
+%  Tmax   - maximum calculation time per one replication. The iteration
+%           procedure stop if computation time exceeds Tmax or iteration
+%           exceeds Niter.
 %
 % Output:
 %    C    - concentration matrix.
