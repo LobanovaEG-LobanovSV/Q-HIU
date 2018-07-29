@@ -42,9 +42,11 @@
 % DirSave - folder, where pictures with spectra and concentration maps of
 %           factorized components are saved. Default is cd.
 %   Sin   - initial spectral matrix for the Q_USPS_NMF procedure. If Sin is
-%           given, the number of replications Nrepl is set to one. If Sin
-%           is not specified or is empty, the Q_USPS_NMF procedure performs
-%           Nrepl replications with random initial matrices. Default is [].
+%           given, the Q_USPS_NMF procedure performs one replication with
+%           Sin initial matrix and Nrepl-1 replications with random initial
+%           matrices. If Sin is not specified or is empty, the Q_USPS_NMF
+%           procedure performs Nrepl replications with random initial 
+%           matrices. Default is [].
 %  Tmax   - maximum calculation time per one replication. The iteration
 %           procedure stop if computation time exceeds Tmax or iteration
 %           exceeds Niter.
