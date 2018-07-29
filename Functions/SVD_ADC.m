@@ -29,7 +29,7 @@
 %   dy    - "one" pixel shift along y-axis. Default is 1.
 %   dnu   - "one" pixel shift along spectral axis. Default is 1.
 %  Save   - logical parameter, which specify to save autocorrelation map
-%           and singular vectors or not. Default is true.
+%           and singular vectors or not. Default is false.
 %   Nu    - Raman shift. Its length is Ns.
 % DirSave - folder, where pictures with autocorrelation map and singular
 %           vectors are saved (default is cd).
