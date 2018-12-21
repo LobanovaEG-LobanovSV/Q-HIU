@@ -24,31 +24,31 @@
 %           Np = sum(Nx.*Ny) and Ns are the number of pixel and spectral
 %           points, respectively.
 %   Nu    - Raman shift. Its length is Ns.
-%    N    - number of components in the Q_USPS_NMF procedure.
-%   Niter - number of iterations for the Q_USPS_NMF procedure.
-%   Nrepl - number of replications of the Q_USPS_NMF procedure.
+%    N    - number of components in the Q-US/PS-NMF analysis.
+%   Niter - number of iterations for the Q-US/PS-NMF analysis.
+%   Nrepl - number of replications of the Q-US/PS-NMF analysis.
 %    KS   - Known spectra. Default value is [].
-%   Save  - logical parameter specifying to save spectra and
-%           concentration maps of factorized components or not. Default
-%           value is false.
+%   Save  - logical parameter specifying whether to save spectra and
+%           concentration maps of factorized components. Default value
+%           is false.
 %   Nx    - vector with number of pixels along x-axis for each submatrix
-%           of the intensity matrix I. Its length is Nr. Default value is
-%           sqrt(size(I,1)).
+%           (individual hyperspectral image) of the intensity matrix I.
+%           Its length is Nr. Default value is sqrt(size(I,1)).
 %   Ny    - vector with number of pixels along y-axis for each submatrix
-%           of the intensity matrix I. Its length is Nr. Default value is
-%           size(I,1) / Nx.
+%           (individual hyperspectral image) of the intensity matrix I.
+%           Its length is Nr. Default value is size(I,1) / Nx.
 %  Names  - cell array with names of the hyperspectral images. Its length
 %           is Nr. Default is ''.
 % DirSave - folder, where pictures with spectra and concentration maps of
 %           factorized components are saved. Default is cd.
-%   Sin   - initial spectral matrix for the Q_USPS_NMF procedure. If Sin is
-%           given, the Q_USPS_NMF procedure performs one replication with
+%   Sin   - initial spectral matrix for the Q-US/PS-NMF analysis. If Sin is
+%           given, the Q-US/PS-NMF analysis performs one replication with
 %           Sin initial matrix and Nrepl-1 replications with random initial
-%           matrices. If Sin is not specified or is empty, the Q_USPS_NMF
-%           procedure performs Nrepl replications with random initial 
+%           matrices. If Sin is not specified or empty, the Q-US/PS-NMF
+%           analysis performs Nrepl replications with random initial 
 %           matrices. Default is [].
 %  Tmax   - maximum calculation time per one replication. The iteration
-%           procedure stop if computation time exceeds Tmax or iteration
+%           procedure stops if computation time exceeds Tmax or iteration
 %           exceeds Niter.
 %
 % Output:
