@@ -1,11 +1,11 @@
 %Q_USPS_NMF Quantitative Unsupervised/Partially Supervised Non-negative
 %Matrix Factorization (Q-US/PS-NMF).
 %
-% Q_USPS_NMF decomposes the intensity matrix I into a product of
-% non-negative spatial concentration maps C and corresponding non-negative
-% spectra S with rows representing individual biochemical substances
-% (components) using the algorithm described in "E. G. Lobanova and
-% S. V. Lobanov, arXiv:1803.01823 (2018)".
+% Q_USPS_NMF decomposes the hyperspectral intensity matrix I into a product
+% of non-negative spatial concentration maps C and corresponding
+% non-negative spectra S with rows representing individual biochemical
+% substances (components) using the algorithm described in "E. G. Lobanova
+% and S. V. Lobanov, arXiv:1803.01823 (2018)".
 %
 % Syntax:
 %   [C, S] = Q_USPS_NMF(I,Nu,N,Niter,Nrepl);
@@ -19,7 +19,7 @@
 %       Save,Nx,Ny,Names,DirSave,Sin,Tmax)
 %
 % Input:
-%    I    - Intensity matrix. It consists of Nr submatrices combined
+%    I    - hyperspectral intensity matrix. It consists of Nr submatrices combined
 %           along first dimension. Its size is Np-by-Ns, where
 %           Np = sum(Nx.*Ny) and Ns are the number of pixel and spectral
 %           points, respectively.
@@ -27,7 +27,7 @@
 %    N    - number of components in the Q-US/PS-NMF analysis.
 %   Niter - number of iterations for the Q-US/PS-NMF analysis.
 %   Nrepl - number of replications of the Q-US/PS-NMF analysis.
-%    KS   - Known spectra. Default value is [].
+%    KS   - known spectra. Default value is [].
 %   Save  - logical parameter specifying whether to save spectra and
 %           concentration maps of factorized components. Default value
 %           is false.
