@@ -1,8 +1,12 @@
 # Q-HIU
 
-Quantitative Hyperspectral Image Unmixing (Q-HIU) method retrieves biochemical constituents (components) from Raman micro-spectroscopy data as described in the paper "E. G. Lobanova and S. V. Lobanov, arXiv:1803.01823 (2018)" (https://arxiv.org/abs/1803.01823).
+Quantitative hyperspectral image unmixing (Q-HIU) method is intended for quantitative data analysis of multi-set and individual Raman micro-spectroscopy images, allowing to efficiently retrieve non-negative spatial concentration maps and non-negative spectral profiles of the images’ chemical constituents (components) with no a priori information, minimum input parameters, and great operation speed. Theory and application of the Q-HIU together with the verifications and comparisons with state-of-the-art methods using both simulated and real experimental data is presented in [E.G.Lobanova, S.V.Lobanov, "Efficient quantitative hyperspectral image unmixing method for large-scale Raman micro-spectroscopy data analysis", Analytica Chimica Acta 1050 (2019) 32e43](https://www.sciencedirect.com/science/article/pii/S0003267018313564?via%3Dihub). 
 
-The main function is Q_HIU.m. It consists of three main steps: Singular Value Decomposition with Automatic Divisive Correlation (SVD_ADC.p), Bottom Gaussian Fitting (BGF.p), and Quantitative Unsupervised/Partially Supervised Non-negative Matrix Factorization (Q_USPS_NMF.p).
+In brief, Q-HIU consists of three chemometric methods (functions) each representing the data steps of analysis. These consecutive steps include Singular Value Decomposition with Automatic Divisive Correlation (SVD_ADC.m) used for data denoising, Bottom Gaussian Fitting (BGF.m) intended for fluorescent background removal and Quantitative Unsupervised/Partially Supervised Non-negative Matrix Factorization (Q_USPS_NMF.m) enabling to identify and quantify the unknown or partially unknown biochemical composition of analytes from the hyperspectral Raman data. As a useful Q_USPS_NMF modality, the user can retrieve partially unknown biochemical composition of analysing samples by simply uploading the Raman spectra of biochemical components that a priori known to be present in the samples.
+
+Altogether, the Q-HIU software is an efficient chemometric technique, which will be beneficial for the biomolecular characterization and quantitative imaging of individual biochemical components in chemical and biomedical samples of various complexity.
+
+The main function is Q_HIU.m. It consists of three main steps: Singular Value Decomposition with Automatic Divisive Correlation (SVD_ADC.m), Bottom Gaussian Fitting (BGF.m), and Quantitative Unsupervised/Partially Supervised Non-negative Matrix Factorization (Q_USPS_NMF.m).
 
 The best way to understand how the Q-HIU works is to consider the following examples.
 
